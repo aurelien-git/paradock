@@ -57,7 +57,7 @@ case "$(uname -m)" in
 	    echo "Could not find parabola-keyring. Please, install it and run pacman-key --populate parabola"
 	    exit 1
 	fi
-	PACMAN_CONF='./mkimage-archlinux-pacman.conf'
+	PACMAN_CONF='./mkimage-parabola-pacman.conf'
 	PACMAN_MIRRORLIST='Server = https://repo.parabola.nu/$repo/os/$arch'
 	PACMAN_EXTRA_PKGS='parabola-keyring'
 	EXPECT_TIMEOUT=120
@@ -65,7 +65,7 @@ case "$(uname -m)" in
 	DOCKER_IMAGE_NAME=parabola
 	;;
     *)
-	PACMAN_CONF='./mkimage-archlinux-pacman.conf'
+	PACMAN_CONF='./mkimage-parabola-pacman.conf'
 	PACMAN_MIRRORLIST='Server = https://repo.parabola.nu/$repo/os/$arch'
 	PACMAN_EXTRA_PKGS=''
 	EXPECT_TIMEOUT=60
