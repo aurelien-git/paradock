@@ -49,7 +49,7 @@ PKGIGNORE="${PKGIGNORE[*]}"
 unset IFS
 
 case "$(uname -m)" in
-    armv*)
+    *)
 	if pacman -Q archlinux-keyring >/dev/null 2>&1 && pacman -Q parabola-keyring >/dev/null 2>&1; then
 	    pacman-key --init
 	    pacman-key --populate parabola
@@ -61,14 +61,6 @@ case "$(uname -m)" in
 	PACMAN_MIRRORLIST='Server = https://repo.parabola.nu/$repo/os/$arch'
 	PACMAN_EXTRA_PKGS='parabola-keyring'
 	EXPECT_TIMEOUT=120
-	ARCH_KEYRING=parabola
-	DOCKER_IMAGE_NAME=parabola
-	;;
-    *)
-	PACMAN_CONF='./mkimage-parabola-pacman.conf'
-	PACMAN_MIRRORLIST='Server = https://repo.parabola.nu/$repo/os/$arch'
-	PACMAN_EXTRA_PKGS=''
-	EXPECT_TIMEOUT=60
 	ARCH_KEYRING=parabola
 	DOCKER_IMAGE_NAME=parabola
 	;;
