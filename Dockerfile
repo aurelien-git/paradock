@@ -1,4 +1,4 @@
 #base/parabola
 FROM scratch
 MAINTAINER Aurélien DESBRIÈRES <aurelien@hacker.camp>
-ADD parabola-05-21-2016.tar.xz /
+ADD parabola-2016.05.23.tar.xz /
