@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Generate a minimal filesystem for archstrike and load it into the local
+# Generate a minimal filesystem for archlinux and load it into the local
 # docker as "archstrike"
 # requires root
 set -e
@@ -65,19 +65,19 @@ case "$(uname -m)" in
 		DOCKER_IMAGE_NAME=archlinuxarm
 		;;
 	*)
-	    	if pacman -Q parabola-keyring >/dev/null 2>&1; then
+	    	if pacman -Q archstrike-keyring >/dev/null 2>&1; then
 			pacman-key --init
-			pacman-key --populate parabola
+			pacman-key --populate archstrike
 		else
-			echo "Could not find parabola-keyring. Please, install it and run pacman-key --populate archstrike"
+			echo "Could not find archstrike-keyring. Please, install it and run pacman-key --populate archstrike"
 			exit 1
 		fi
-		PACMAN_CONF='./mkimage-parabola-pacman.conf'
-		PACMAN_MIRRORLIST='Server = https://repo.parabola.nu/$repo/os/$arch'
-		PACMAN_EXTRA_PKGS='parabola-keyring'
-		EXPECT_TIMEOUT=120
-		ARCH_KEYRING=parabola
-		DOCKER_IMAGE_NAME=parabola
+		PACMAN_CONF='./mkimage-arch-pacman.conf'
+		PACMAN_MIRRORLIST='Server = https://archive.archlinux.org/repos/'$REPO_DATE'/$repo/os/$arch'
+		PACMAN_EXTRA_PKGS=''
+		EXPECT_TIMEOUT=60
+		ARCH_KEYRING=archlinux
+		DOCKER_IMAGE_NAME=archlinux
 		;;
 esac
 
