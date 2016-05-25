@@ -1,6 +1,6 @@
 #base/parabola
 
-Parabola 2016.05.22 Minimal Parabola installation
+Parabola 2016.05.25 Minimal Parabola installation
 
 Generated with mkimage-parabola.sh[1]
 
